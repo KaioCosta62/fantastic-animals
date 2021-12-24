@@ -1,0 +1,70 @@
+[data-menu = "button"]{
+  background-color: #222;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  color: #fff;
+  font-family: 'IBM Plex Mono', monospace;
+  font-weight: bold;
+  cursor: pointer;
+  margin: 10px;
+  display: none;
+  align-items: center;
+  position: relative;
+  z-index: 201;
+}
+
+[data-menu = "button"]::before{
+  content: "";
+  width: 12px;
+  height: 2px;
+  background-color: #fff;
+  display: inline-block;
+  box-shadow: 0px 4px #fff, 0 -4px #fff;
+  margin-right: 5px;
+}
+
+@keyframes menuMobile{
+  from{
+    opacity: 0;
+    transform: translate3d(0,-30px,0);
+  }
+  to{
+    opacity: 1;
+    transform: translate3d(0,0,0);
+  }
+}
+.ativarMenu{
+  animation: menuMobile .3s forwards;
+  opacity: 1 !important;
+}
+
+[data-menu = "button"].animacaoBtn::before{
+  transform: rotate(-90deg);
+}
+
+
+@media (max-width: 700px){
+  [data-menu = "list"]{
+    display: block;
+    opacity: 0;
+    position: absolute;
+    background-color: #fb5;
+    width: 158px;
+    z-index: 200;
+    padding: 60px 0 20px 0;
+    top: 50px;
+    box-shadow: 2px 2px 2px 0 rgba(0,0,0,0.2);
+  }
+
+  [data-menu = "button"]{
+    display: flex;
+  }
+
+  .dropdown-menu{
+    position: static;
+    border: none;
+  }
+
+}
